@@ -75,7 +75,7 @@ namespace prizemachine
             foreach (String obj in inv)
 			{
 				short temp = inv[obj];
-				Console.WriteLine(obj+"x"+);
+				Console.WriteLine(obj+" x");
 			}
 		}
 
