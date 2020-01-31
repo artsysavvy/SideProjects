@@ -14,6 +14,7 @@ namespace Prize_Machine
 
         public Machine()
         {
+            // fill the machine to start
             Fill();
         }
 
@@ -22,21 +23,38 @@ namespace Prize_Machine
             get { return possibleprizes; }
         }
 
+        // lists all possible prizes
         public void PrizeList()
         {
             foreach (KeyValuePair<String,String> item in possibleprizes)
             {
                 Console.WriteLine(item.Key + ": " +item.Value);
                 Console.WriteLine();
-            }
-                
+            }       
         }
 
-        public void Generate()
+        // generates random prize
+        public KeyValuePair<String, String> Generate()
         {
             int randomnum = rng.Next(0, PrizeCount());
+            int i = 0;
+
+            foreach (KeyValuePair<String, String> item in possibleprizes)
+            {
+
+                if (i == randomnum)
+                {
+                    return item;
+                }
+
+                i++;
+            }
+
+            // u shouldnt get this one lol
+            return new KeyValuePair<string, string>("You lose!", "Good day sir!");
         }
 
+        // counts how many prizes can be obtained
         private int PrizeCount()
         {
             int i = 0;
@@ -50,6 +68,7 @@ namespace Prize_Machine
 
         }
 
+        // fills dictionary with items
         private void Fill()
         {
 

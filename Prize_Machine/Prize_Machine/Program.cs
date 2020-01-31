@@ -11,8 +11,9 @@ namespace Prize_Machine
         static void Main(string[] args)
         {
             Machine prizemachine = new Machine();
+            Dictionary<String, String> inventory = new Dictionary<string, string>();
 
-            prizemachine.PrizeList();
+            Console.WriteLine();
         }
     }
 }
